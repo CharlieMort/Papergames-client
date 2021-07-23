@@ -1,38 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mali&display=swap');
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Mali";
+  background-color: #fff;
+  color: #187bcd;
+  margin: 0;
+  height: 100%;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+#root {
+  height: 100%;
+}
+
 .App {
+  height: 100%;
+}
+
+.Title {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.Title img {
+  width: 35vw;
+}
+
+.flex {
+  display: flex;
+}
+
+.c {
+  justify-content: center;
+}
+
+.sa {
+  justify-content: space-around;
+}
+
+.tc {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.ai {
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.column {
+  flex-direction: column;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.w100 {
+  width: 100%;
+}
+
+.w50 {
+  width: 50%;
+}
+
+.Cell {
+  border: 1.5px solid #000;
+  width: 3vw;
+  height: 3vw;
+  padding: 0;
+  outline: 0;
+  font-family: inherit;
+  background-color: transparent;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Hit {
+  color: red;
+}
+
+.Grid {
+  border: 1.5px solid #000;
+  width: 30vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ship {
+  background-color: #187bcd;
+}
+
+.Miss {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Circle {
+  color: black;
+  background-color: black;
+  border-radius: 100%;
+  width: 50%;
+  height: 50%;
+}
+
+.Outcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50%;
+}
+
+.Buttons button {
+  color: white;
+  background-color: #48A1EA;
+  border: 1px solid #48A1EA;
+  outline: none;
+  border-radius: 20rem;
+  font-size: 1.25rem;
+  padding: 0.25rem 1rem;
+  font-family: inherit;
+}
+
+.Buttons button:hover {
+  color: #48A1EA;
+  background-color: white;
+}
+
+.Matchmaking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50%;
+  font-size: 1.5rem;
+}
+
+.Matchmaking h1 {
+  margin: 0;
+}
+
+.Matchmaking .Buttons {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-around;
+}
+
+.Matchmaking .Buttons button {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.PageBreak {
+  border-top: 5px solid #187bcd;
+  width: 90%;
+  border-radius: 10rem;
+}
+
+.yesno {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
