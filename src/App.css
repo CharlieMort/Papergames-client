@@ -7,8 +7,8 @@ html {
 
 body {
   font-family: "Mali";
-  background-color: #fff;
-  color: #187bcd;
+  background-color: #187bcd;
+  color: #fff;
   margin: 0;
   height: 100%;
 }
@@ -27,12 +27,57 @@ h2 {
 
 .Title {
   display: flex;
-  justify-content: center;
-  padding: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem;
 }
 
-.Title img {
-  width: 35vw;
+.NickInput {
+  width: 100%;
+  margin: 0.1rem;
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  font-family: Mali;
+  font-size: 1.5rem;
+  outline: 0;
+}
+
+.NickInput::placeholder {
+  color: #ddd;
+}
+
+.NickLogin {
+  display: flex;
+  align-items: center;
+  margin: 0.3rem 0 0 0;
+  font-size: 1.5rem;
+}
+
+.SubmitNick {
+  flex: 1;
+  width: 100%;
+  margin: 0.1rem;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  font-family: Mali;
+  font-size: 1.5rem;
+  background-color: #fff;
+  color: #187bcd;
+  padding: 0.25rem 0.6rem;
+  max-width: fit-content;
+  max-height: fit-content;
+}
+
+.SubmitNick:hover {
+  background-color: #187bcd;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.ProfilePopUp form div {
+  display: flex;
 }
 
 .flex {
@@ -68,7 +113,7 @@ h2 {
 }
 
 .Cell {
-  border: 1.5px solid #000;
+  border: 1.5px solid #fff;
   width: 3vw;
   height: 3vw;
   padding: 0;
@@ -82,18 +127,17 @@ h2 {
 }
 
 .Hit {
-  color: red;
+  color: #ffffff;
 }
 
 .Grid {
-  border: 1.5px solid #000;
   width: 30vw;
   display: flex;
   flex-wrap: wrap;
 }
 
 .ship {
-  background-color: #187bcd;
+  background-color: #092C49;
 }
 
 .Miss {
@@ -103,8 +147,8 @@ h2 {
 }
 
 .Circle {
-  color: black;
-  background-color: black;
+  color: #fff;
+  background-color: #fff;
   border-radius: 100%;
   width: 50%;
   height: 50%;
@@ -116,22 +160,6 @@ h2 {
   align-items: center;
   flex-direction: column;
   height: 50%;
-}
-
-.Buttons button {
-  color: white;
-  background-color: #48A1EA;
-  border: 1px solid #48A1EA;
-  outline: none;
-  border-radius: 20rem;
-  font-size: 1.25rem;
-  padding: 0.25rem 1rem;
-  font-family: inherit;
-}
-
-.Buttons button:hover {
-  color: #48A1EA;
-  background-color: white;
 }
 
 .Matchmaking {
@@ -147,19 +175,8 @@ h2 {
   margin: 0;
 }
 
-.Matchmaking .Buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.Matchmaking .Buttons button {
-  margin: 0.5rem 0;
-  font-size: 1.5rem;
-}
-
 .PageBreak {
-  border-top: 5px solid #187bcd;
+  border-top: 5px solid #fff;
   width: 90%;
   border-radius: 10rem;
 }
@@ -167,4 +184,61 @@ h2 {
 .yesno {
   display: flex;
   justify-content: center;
+}
+
+.DEAD {
+  background-color: #ff3434;
+  color: white;
+}
+
+.LoginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.LoginPage div h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.LoginPage div h2 {
+  margin: 0.5rem 0;
+}
+
+.LoginPage div div {
+  margin: 3rem;
+}
+
+.Error {
+  color: red;
+}
+
+.Matchmakingbuttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  flex: 1;
+  width: 100%;
+  margin: 0.1rem;
+  border: 1px solid #fff;
+  border-radius: 0.5rem;
+  font-family: Mali;
+  font-size: 1.3rem;
+  background-color: #fff;
+  color: #187bcd;
+  padding: 0.25rem 0.6rem;
+  max-width: fit-content;
+  max-height: fit-content;
+}
+
+.button:hover {
+  background-color: #187bcd;
+  border: 1px solid #fff;
+  color: #fff;
 }

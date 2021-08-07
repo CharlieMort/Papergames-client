@@ -1,12 +1,12 @@
 import React from "react";
 
-const Room = ({socket, game}) => {
+const Room = ({socket, game, user}) => {
     const Random = () => {
-        socket.emit(`q${game}`);
+        socket.emit(`q${game}`, user);
     }
 
     const Invite = () => {
-        socket.emit(`create${game}`);
+        socket.emit(`create${game}`, user);
     }
 
     return(
@@ -14,9 +14,11 @@ const Room = ({socket, game}) => {
             <img src="" />
             <div>
                 <h1><u>{game.substring(0,1).toUpperCase() + game.substring(1)}</u></h1>
-                <div className="Buttons">
-                    <button onClick={Random}>Find Random Player</button>
-                    <button onClick={Invite}>Invite Friend</button>
+                <div className="Matchmakingbuttons">
+                    <button onClick={Random} className="button">Find Random Player</button>
+                    {
+                        // <button onClick={Invite} className="button">Invite Friend</button>
+                    }
                 </div>
             </div>
         </div>
