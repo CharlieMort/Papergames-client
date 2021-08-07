@@ -1,244 +1,104 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mali&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
 
-html {
+html, body {
   height: 100%;
-}
-
-body {
-  font-family: "Mali";
-  background-color: #187bcd;
-  color: #fff;
+  font-family: "Open Sans";
+  background-color: #262626;
+  color: #F5F8FA;
   margin: 0;
-  height: 100%;
+  padding: 1rem 5rem 0 5rem;
 }
 
-h2 {
-  font-size: 2rem;
+/* ----------------------------------------- TITLE BAR ------------------------------------------ */
+
+.Title h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin: 0;
+  padding: 2rem 5rem 1.5rem 2rem;
+  color: #1DA1F2;
+  line-height: 2.5rem;
 }
 
-#root {
-  height: 100%;
-}
-
-.App {
-  height: 100%;
-}
-
-.Title {
+.Topbar {
+  color: #1DA1F2;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 1rem;
+  padding-bottom: 2rem;
+  border-bottom: 5px solid #1DA1F2;
+  margin-bottom: 3rem;
 }
 
-.NickInput {
-  width: 100%;
-  margin: 0.1rem;
-  border: 1px solid #fff;
-  color: #fff;
-  background-color: transparent;
-  border-radius: 0.5rem;
-  font-family: Mali;
-  font-size: 1.5rem;
-  outline: 0;
-}
-
-.NickInput::placeholder {
-  color: #ddd;
-}
-
-.NickLogin {
+.Navbar {
   display: flex;
-  align-items: center;
-  margin: 0.3rem 0 0 0;
-  font-size: 1.5rem;
+  align-items: center
 }
 
-.SubmitNick {
-  flex: 1;
-  width: 100%;
-  margin: 0.1rem;
-  border: 1px solid #fff;
-  border-radius: 0.5rem;
-  font-family: Mali;
-  font-size: 1.5rem;
-  background-color: #fff;
-  color: #187bcd;
-  padding: 0.25rem 0.6rem;
-  max-width: fit-content;
-  max-height: fit-content;
+.Navlink {
+  font-size: 1.75rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-bottom: 0.25rem solid #1DA1F2;
 }
 
-.SubmitNick:hover {
-  background-color: #187bcd;
-  border: 1px solid #fff;
-  color: #fff;
-}
+/* ----------------------------------------- LOGIN ------------------------------------------ */
 
-.ProfilePopUp form div {
-  display: flex;
-}
-
-.flex {
-  display: flex;
-}
-
-.c {
-  justify-content: center;
-}
-
-.sa {
-  justify-content: space-around;
-}
-
-.tc {
-  text-align: center;
-}
-
-.ai {
-  align-items: center;
-}
-
-.column {
-  flex-direction: column;
-}
-
-.w100 {
-  width: 100%;
-}
-
-.w50 {
+.Login {
+  background-color: #2c2f33;
+  border-radius: 1rem;
+  margin: auto;
   width: 50%;
+  padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
-.Cell {
-  border: 1.5px solid #fff;
-  width: 3vw;
-  height: 3vw;
-  padding: 0;
-  outline: 0;
-  font-family: inherit;
-  background-color: transparent;
+.textinp {
+  width: 100%;
+  font-size: 1.25rem;
+  background-color: #23272a;
+  font-family: "Open Sans";
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  margin: 0.25rem 0 0.25rem 0;
+  outline: none;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.Hit {
-  color: #ffffff;
-}
-
-.Grid {
-  width: 30vw;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.ship {
-  background-color: #092C49;
-}
-
-.Miss {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.Circle {
-  color: #fff;
-  background-color: #fff;
-  border-radius: 100%;
-  width: 50%;
-  height: 50%;
-}
-
-.Outcome {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 50%;
-}
-
-.Matchmaking {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 50%;
-  font-size: 1.5rem;
-}
-
-.Matchmaking h1 {
-  margin: 0;
-}
-
-.PageBreak {
-  border-top: 5px solid #fff;
-  width: 90%;
-  border-radius: 10rem;
-}
-
-.yesno {
-  display: flex;
-  justify-content: center;
-}
-
-.DEAD {
-  background-color: #ff3434;
   color: white;
 }
 
-.LoginPage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.textinp:focus {
+  border-color: #1DA1F2;
+  animation: fadetobluefromblack 0.25s linear 0s 1 forwards;
 }
 
-.LoginPage div h1 {
-  font-size: 4rem;
-  font-weight: bold;
-  text-decoration: underline;
-  text-align: center;
+@keyframes fadetobluefromblack {
+  from {
+    border-color: black;
+  }
+  to {
+    border-color: #1DA1F2;
+  }
 }
 
-.LoginPage div h2 {
-  margin: 0.5rem 0;
-}
-
-.LoginPage div div {
-  margin: 3rem;
-}
-
-.Error {
-  color: red;
-}
-
-.Matchmakingbuttons {
-  display: flex;
-  flex-direction: column;
-}
-
-.button {
-  flex: 1;
+.formbutton {
   width: 100%;
-  margin: 0.1rem;
-  border: 1px solid #fff;
-  border-radius: 0.5rem;
-  font-family: Mali;
-  font-size: 1.3rem;
-  background-color: #fff;
-  color: #187bcd;
-  padding: 0.25rem 0.6rem;
-  max-width: fit-content;
-  max-height: fit-content;
+  background-color: #1DA1F2;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  font-family: "Open Sans";
+  font-size: 1.25rem;
+  color: white;
+  margin: 1rem 0 1rem 0;
+  padding: 0.5rem;
+  font-weight: bold;
 }
 
-.button:hover {
-  background-color: #187bcd;
-  border: 1px solid #fff;
-  color: #fff;
+.inputname {
+  color: #657786;
+  margin: 0.25rem 0 0.25rem 0;
 }
+
+.link {
+  color: #1DA1F2;
+}
+
+/* ----------------------------------------- SIGNUP ------------------------------------------ */
+

@@ -22,12 +22,14 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <div className="Title">
-          <div className="Logo">
-            <img src={logo} alt="logo" />
+        <div className="Topbar">
+          <div className="Title">
+            <h1>paper<br></br>games.</h1>
+          </div>
+          <div className="Navbar">
+            <h3 className="Navlink">battleship</h3>
           </div>
         </div>
-        <hr className="PageBreak"></hr>
         <Switch>
           <Route path="/" exact>
             <Redirect to="/login" />

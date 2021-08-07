@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 
 export const Signup = ({setUser}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const history = useHistory();
     const [error, setError] = useState("");
 
     const signUp = (e) => {
@@ -38,21 +36,23 @@ export const Signup = ({setUser}) => {
     }
 
     return(
-        <div className="LoginPage">
+        <div className="Login">
             <div>
-                <h1>Sign Up</h1>
+                <h1>sign up</h1>
                 <div>
-                    <h2>Account Signup</h2>
-                    <p className="Error">{error}</p>
+                    <p className="inputname">account signup</p>
+                    {
+                        error &&
+                        <p className="Error">{error}</p>
+                    }
                     <form onSubmit={signUp}>
-                        <input type="username" placeholder="Enter Username..." className="NickInput" value={username} onChange={(e) => setUsername(e.target.value)} />
-                        <input type="password" placeholder="Enter Password..." className="NickInput" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <input type="submit" value="Signup" className="SubmitNick" />
+                        <input type="username" placeholder="enter username" className="textinp" value={username} onChange={(e) => setUsername(e.target.value)} />
+                        <input type="password" placeholder="enter password" className="textinp" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <input type="submit" value="sign up" className="formbutton" />
                     </form>
                 </div>
             </div>
-            <h3>Already have an account?</h3>
-            <button className="SubmitNick" onClick={() => history.push("/login")}>Login</button>
+            <p className="inputname">already have an account? login <a href="/login" className="link">here</a></p>
         </div>
     )
 }

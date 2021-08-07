@@ -41,28 +41,30 @@ export const Login = ({setUser}) => {
     }
 
     return(
-        <div className="LoginPage">
+        <div className="Login">
+            <h1>login</h1>
             <div>
-                <h1>Login</h1>
                 <div>
-                    <h2>Guest Login</h2>
+                    <p className="inputname">guest login</p>
                     <form onSubmit={nickLogin}>
-                        <input type="text" placeholder="Enter Nickname..." className="NickInput" value={nickname} onChange={(e) => setNickname(e.target.value)} />
-                        <input type="submit" value="Submit" className="SubmitNick" />
+                        <input type="text" placeholder="enter nickname..." className="textinp" value={nickname} onChange={(e) => setNickname(e.target.value)} />
+                        <input type="submit" value="submit" className="formbutton" />
                     </form>
                 </div>
                 <div>
-                    <h2>Account Login</h2>
-                    <p className="Error">{error}</p>
+                    <p className="inputname">account login</p>
+                    {
+                        error &&
+                        <p className="Error">{error}</p>
+                    }
                     <form onSubmit={login}>
-                        <input type="username" placeholder="Enter Username..." className="NickInput" value={username} onChange={(e) => setUsername(e.target.value)} />
-                        <input type="password" placeholder="Enter Password..." className="NickInput" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <input type="submit" value="Login" className="SubmitNick" />
+                        <input type="username" placeholder="enter username..." className="textinp" value={username} onChange={(e) => setUsername(e.target.value)} />
+                        <input type="password" placeholder="enter uassword..." className="textinp" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <input type="submit" value="login" className="formbutton" />
                     </form>
                 </div>
             </div>
-            <h3>Or Sign Up Here</h3>
-            <button className="SubmitNick">Sign Up</button>
+            <p className="inputname">don't have an account? register <a href="/signup" className="link">here</a></p>
         </div>
     )
 }
