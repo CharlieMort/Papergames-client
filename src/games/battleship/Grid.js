@@ -43,7 +43,7 @@ export const Cell = ({coords, shoot}) => {
 
 export const CellDiv = ({val, shot}) => {
     return(
-        <div className={`Cell ${val}`} >
+        <div className={`Cell ${val} ${val.length > 4?"Hit":"Miss"}`} >
             {
                 shot !== ""
                     ?shot === "hit"
@@ -59,7 +59,7 @@ export const CellDiv = ({val, shot}) => {
 
 export const Hit = ({val}) => {
     return(
-        <div className={`${val.split(" ")[1]?val.split(" ")[1]:""} Cell ${val.length > 4?"Hit":"Miss"} tc`}>
+        <div className={`${val.split(" ")[1]?val.split(" ")[1]:""} Cell ${val.length > 4?"Hit":"Miss"}`}>
             {
                 val.length > 4
                 ?<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

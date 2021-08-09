@@ -2,9 +2,10 @@ import React from "react";
 
 const Queue = ({game}) => {
     return(
-        <div className="tc">
-            <h1>You Are In The Queue For {game}</h1>
-            <h3>Searching For Game...</h3>
+        <div className="Panel">
+            <h1>{game}</h1>
+            <p className="inputname">searching for a game ...</p>
+            <p className="inputname">time elapsed 0s</p>
         </div>
     )
 }

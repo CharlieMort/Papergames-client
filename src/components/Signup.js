@@ -36,7 +36,7 @@ export const Signup = ({setUser}) => {
     }
 
     return(
-        <div className="Login">
+        <div className="Panel">
             <div>
                 <h1>sign up</h1>
                 <div>

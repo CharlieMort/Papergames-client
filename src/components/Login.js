@@ -40,14 +40,18 @@ export const Login = ({setUser}) => {
             });
     }
 
+    const nickChange = (e) => {
+        setNickname(e.target.value.slice(0,14));
+    }
+
     return(
-        <div className="Login">
+        <div className="Panel">
             <h1>login</h1>
             <div>
                 <div>
                     <p className="inputname">guest login</p>
                     <form onSubmit={nickLogin}>
-                        <input type="text" placeholder="enter nickname..." className="textinp" value={nickname} onChange={(e) => setNickname(e.target.value)} />
+                        <input type="text" placeholder="enter nickname..." className="textinp" value={nickname} onChange={nickChange} />
                         <input type="submit" value="submit" className="formbutton" />
                     </form>
                 </div>

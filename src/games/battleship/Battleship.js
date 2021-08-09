@@ -39,7 +39,7 @@ const Battleship = ({socket, user}) => {
         return <Rooms socket={socket} game="battleship" user={user} />
     }
     if (roomInfo.inQ) {
-        return <Queue game="Battleship" />
+        return <Queue game="battleship" />
     }
 
     if (roomInfo.waiting) {
@@ -50,22 +50,22 @@ const Battleship = ({socket, user}) => {
 
     if (roomInfo.winner !== 2) {
         return( 
-            <div className="Outcome">
-                <h1>{roomInfo.winner === idx?"You won battleships!!":"You lost battleships :("}</h1>
+            <div className="Panel">
+                <h1>{roomInfo.winner === idx?"you won.":"you lost."}</h1>
                 {
                     roomInfo.players[idx].rematch
-                    ? <h3>Waiting for response...</h3>
+                    ? <p className="inputname">Waiting for response...</p>
                     : roomInfo.players[idx===0?1:0].rematch
                         ? <div>
-                            <h3>Oppenent Wants A Rematch?</h3>
+                            <h3 className="tac">Oppenent Wants A Rematch?</h3>
                             <div className="Buttons yesno">
-                                <button className="SubmitNick" onClick={() => socket.emit("b_rematch", roomInfo.code, idx)}>Yes?</button>
-                                <button className="SubmitNick" onClick={() => socket.emit("reject")}>No?</button>
+                                <button className="formbutton" onClick={() => socket.emit("b_rematch", roomInfo.code, idx)}>Yes?</button>
+                                <button className="formbutton" onClick={() => socket.emit("reject")}>No?</button>
                             </div>
                         </div>
                         : <div className="MatchmakingButtons">
-                            <button className="SubmitNick" onClick={() => socket.emit("b_rematch", roomInfo.code, idx)}>Rematch?</button>
-                            <button className="SubmitNick" onClick={() => socket.emit("reject")}>New Game</button>
+                            <button className="formbutton" onClick={() => socket.emit("b_rematch", roomInfo.code, idx)}>rematch</button>
+                            <button className="formbutton" onClick={() => socket.emit("reject")}>new game</button>
                         </div>
                 }
             </div>
@@ -80,23 +80,21 @@ const Battleship = ({socket, user}) => {
     }
     console.log(roomInfo.players[idx===0?1:0].user);
     return(
-        <div className="GameWindow">
-            <div className="flex sa">
-                <div>
-                    <h2>Your Board</h2>
-                    <Grid map={roomInfo.players[idx].map} eshots={roomInfo.players[idx===0?1:0].shots} />
-                </div>
-                <h2>
-                    {
-                        idx === roomInfo.turn 
-                        ? "Its Your Turn"
-                        : "Enemy's Turn"
-                    }
-                </h2>
-                <div>
-                    <h2>{roomInfo.players[idx===0?1:0].user.username}'s Board</h2>
-                    <Grid map={roomInfo.players[idx===0?1:0].map} shots={roomInfo.players[idx].shots} shoot={Shoot} />
-                </div>
+        <div className="Battleships">
+            <div className="Board">
+                <h2>Your Board</h2>
+                <Grid map={roomInfo.players[idx].map} eshots={roomInfo.players[idx===0?1:0].shots} />
+            </div>
+            <h2 className="TurnText">
+                {
+                    idx === roomInfo.turn 
+                    ? "your turn"
+                    : roomInfo.players[idx===0?1:0].user.username+"'s turn"
+                }
+            </h2>
+            <div className="Board">
+                <h2>{roomInfo.players[idx===0?1:0].user.username}'s Board</h2>
+                <Grid map={roomInfo.players[idx===0?1:0].map} shots={roomInfo.players[idx].shots} shoot={Shoot} />
             </div>
         </div>
     )

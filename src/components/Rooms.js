@@ -1,4 +1,5 @@
 import React from "react";
+import battleshipImg from "../imgs/battleship.png";
 
 const Room = ({socket, game, user}) => {
     const Random = () => {
@@ -10,16 +11,14 @@ const Room = ({socket, game, user}) => {
     }
 
     return(
-        <div className="Matchmaking">
-            <img src="" />
-            <div>
-                <h1><u>{game.substring(0,1).toUpperCase() + game.substring(1)}</u></h1>
-                <div className="Matchmakingbuttons">
-                    <button onClick={Random} className="button">Find Random Player</button>
-                    {
-                        // <button onClick={Invite} className="button">Invite Friend</button>
-                    }
-                </div>
+        <div className="Panel Rooms">
+            <div className="GameIcon">
+                <h1>{game}.</h1>
+                <img src={battleshipImg} />
+            </div>
+            <div className="Matchmakingbuttons">
+                <button onClick={Random} className="formbutton">find random player</button>
+                <button className="formbutton">invite a friend</button>
             </div>
         </div>
     )
