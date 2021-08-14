@@ -1,11 +1,13 @@
 import './App.css';
 import Battleship from "./games/battleship/Battleship";
 import socketIO from "socket.io-client";
-import logo from "./logo.png";
-import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Redirect, Link} from "react-router-dom";
 import { Login } from './components/Login';
 import { Signup } from './components/Signup';
 import { useState } from 'react';
+import { Tictactoe } from './games/tictactoe/Tictactoe';
+import { Games } from './components/Games';
+import Connect4 from './games/connect4/Connect4';
 
 const ENDPOINT = "http://localhost:5000";
 let socket;
@@ -23,36 +25,36 @@ function App() {
     <Router>
       <div className="App">
         <div className="Topbar">
-          <div className="Title">
+          <Link className="Title" to="/games">
             <h1>paper<br></br>games.</h1>
-          </div>
+          </Link>
           <div className="Navbar">
-            <h3 className="Navlink">battleship</h3>
+            <Link className="Navlink" to="/battleship">battleship</Link>
+            <Link className="Navlink" to="/tictactoe">tic tac toe</Link>
+            <Link className="Navlink" to="/connect4">connect 4</Link>
           </div>
         </div>
         <Switch>
           <Route path="/" exact>
             <Redirect to="/login" />
           </Route>
-          <Route path="/battleship" exact>
+          <Route path="/battleship/:id?">
             <Battleship socket={socket} user={user} />
           </Route>
-          <Route path="/battleship/:id">
-            <Battleship socket={socket} user={user} />
+          <Route path="/signup/:id?">
+            <Signup setUser={setUser} />
           </Route>
-          <Route path="/signup" exact>
-            {
-              user
-              ? <Redirect to="/battleship" />
-              : <Signup setUser={setUser} />
-            }
+          <Route path="/login/:id?">
+            <Login setUser={setUser} />
           </Route>
-          <Route path="/login" exact>
-            {
-              user
-              ? <Redirect to="/battleship" />
-              : <Login setUser={setUser} />
-            }
+          <Route path="/tictactoe/:id?">
+            <Tictactoe socket={socket} user={user} />
+          </Route>
+          <Route path="/games/:id?">
+            <Games />
+          </Route>
+          <Route path="/connect4/:id?">
+            <Connect4 socket={socket} user={user} />
           </Route>
         </Switch>
       </div>

@@ -2,10 +2,10 @@ import React from "react";
 
 const Invite = ({game, code}) => {
     return(
-        <div className="flex c tc column">
-            <h1>Invite Your Friend To {`${game.substring(0,1).toUpperCase()}${game.substring(1)}`}</h1>
-            <h2>Send Them This Link</h2>
-            <h3 focused="true">localhost:3000/{game}/{code}</h3>
+        <div className="Panel">
+            <h1>invite your friend to {game}</h1>
+            <p>send them this link</p>
+            <h4>{`${window.location.href}/${code}`}</h4>
         </div>
     )
 }

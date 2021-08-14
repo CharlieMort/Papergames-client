@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useHistory, useParams } from "react-router-dom";
 
 export const Signup = ({setUser}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const history = useHistory();
+    const { id } = useParams();
 
     const signUp = (e) => {
         e.preventDefault();
@@ -24,6 +27,7 @@ export const Signup = ({setUser}) => {
                         score: 0,
                         imgIdx: 0
                     })
+                    history.push(`/games/${id}`)
                 }
                 else {
                     setError("Username Already Taken");
@@ -52,7 +56,7 @@ export const Signup = ({setUser}) => {
                     </form>
                 </div>
             </div>
-            <p className="inputname">already have an account? login <a href="/login" className="link">here</a></p>
+            <p className="inputname">already have an account? login <a href={`/login/${id}`} className="link">here</a></p>
         </div>
     )
 }

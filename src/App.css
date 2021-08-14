@@ -15,6 +15,10 @@ html, body {
 
 /* ----------------------------------------- TITLE BAR ------------------------------------------ */
 
+.Title {
+  text-decoration: none;
+}
+
 .Title h1 {
   font-weight: 700;
   font-size: 2.5rem;
@@ -38,9 +42,18 @@ html, body {
 }
 
 .Navlink {
+  color: #1DA1F2;
   font-size: 1.75rem;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  border-bottom: 0.25rem solid #1DA1F2;
+  border-bottom: 0.25rem solid currentColor;
+  margin-right: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.Navlink:hover {
+  color: white;
+  padding: 1rem 1rem 1rem 1rem;
 }
 
 /* ----------------------------------------- LOGIN ------------------------------------------ */
@@ -50,7 +63,7 @@ html, body {
   border-radius: 1rem;
   margin: auto;
   width: 50%;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 0.5rem 1rem 1rem 1rem;
 }
 
 .textinp {
@@ -95,7 +108,7 @@ html, body {
   font-weight: bold;
 }
 
-.inputname {
+p {
   color: #657786;
   margin: 0.25rem 0 0.25rem 0;
 }
@@ -104,7 +117,16 @@ html, body {
   color: #1DA1F2;
 }
 
+.Error {
+  color: red;
+}
+
 /* ----------------------------------------- ROOMS ------------------------------------------ */
+
+.Roomswrapper {
+  display: flex;
+  justify-content: space-around;
+}
 
 .Rooms {
   display: flex;
@@ -120,8 +142,41 @@ html, body {
   align-items: flex-start;
 }
 
+.GameIconImg {
+  width: 12.5rem;
+}
+
 .Matchmakingbuttons {
   flex: 2;
+}
+
+.Leaderboard {
+  width: fit-content
+}
+
+.Score {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ----------------------------------------- Games Selection ------------------------------------------ */
+
+.Games {
+  display: flex;
+  justify-content: center;
+}
+
+.GamePanel {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  text-decoration: none;
+  margin: 0 2rem 0 2rem;
+}
+
+.GamePanel h1 {
+  text-decoration: none;
+  color: white;
 }
 
 /* ----------------------------------------- Battleships ------------------------------------------ */
@@ -143,6 +198,11 @@ html, body {
   background-color: #2c2f33;
   border-radius: 1rem;
   padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.Boardtitle {
+  display: flex;
+  justify-content: space-between;
 }
 
 .Cell {
@@ -186,9 +246,112 @@ html, body {
   background-color: red;
 }
 
-/* ----------------------------------------- Outcome ------------------------------------------ */
+/* ----------------------------------------- TIC TAC TOE ------------------------------------------ */
 
+.ttt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 50%;
+  width: fit-content;
+}
 
+.tttGrid {
+  display: flex;
+  width: 30vw;
+  flex-wrap: wrap;
+  border: 1px solid #1DA1F2;
+}
+
+.tttCell {
+  width: 10vw;
+  height: 10vw;
+  background-color: transparent;
+  border: 1px solid #1DA1F2;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.o {
+  background-color: transparent;
+  border: 10px solid white;
+}
+
+.vs {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.vs p {
+  flex: 1;
+  text-align: center;
+}
+
+.tttMid {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tttMid h1 {
+  margin: 0;
+}
+
+/* ----------------------------------------- Connect 4 ------------------------------------------ */
+
+.c4Board {
+  width: 35vw;
+  height: 30vw;
+  border: 1px solid #1DA1F2;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.c4Cell {
+  width: 5vw;
+  height: 5vw;
+  background-color: transparent;
+  outline: none;
+  box-sizing: border-box;
+  border: 1px solid #1DA1F2;
+  margin: 0;
+  padding: 0.25vw 0.25vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Circle {
+  width: 100%;
+  height: 100%;
+  background-color: #23272a;
+}
+
+.SmallCircle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10rem;
+  margin-left: 1rem;
+}
+
+.flexcenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.light {
+  background-color: #1DA1F2;
+}
+
+.dark {
+  background-color: #085687;
+}
+
+/* ----------------------------------------- RESIZING ------------------------------------------ */
 
 @media (max-width: 1250px) {
   html, body {

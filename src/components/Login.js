@@ -1,11 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 
 export const Login = ({setUser}) => {
     const [nickname, setNickname] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const { id } = useParams();
+    const history = useHistory();
 
     const nickLogin = (e) => {
         e.preventDefault();
@@ -15,11 +18,12 @@ export const Login = ({setUser}) => {
             score: 0,
             imgIdx: 0
         })
+        history.push(`/games/${id?id:""}`)
     }
 
     const login = (e) => {
         e.preventDefault();
-        axios.get(`http://localhost:5000/api/user/login/${username}`)
+        axios.get(`http://localhost:5000/api/user/login/username/${username}`)
             .then(res => {
                 if (res.data.password === password) {
                     setUser({
@@ -29,6 +33,7 @@ export const Login = ({setUser}) => {
                         score: res.data.score,
                         imgIdx: 0
                     })
+                    history.push(`/games/${id?id:""}`)
                 }
                 else {
                     setError("Username Or Password Is Incorrect");
@@ -68,7 +73,7 @@ export const Login = ({setUser}) => {
                     </form>
                 </div>
             </div>
-            <p className="inputname">don't have an account? register <a href="/signup" className="link">here</a></p>
+            <p className="inputname">don't have an account? register <a href={`/signup/${id?id:""}`} className="link">here</a></p>
         </div>
     )
 }

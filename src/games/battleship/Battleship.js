@@ -13,11 +13,11 @@ const Battleship = ({socket, user}) => {
     const history = useHistory();
 
     console.log(user);
+    console.log(id);
 
     useEffect(() => {
         socket.on("roomInfo", (data) => {
             setRoomInfo(data);
-            console.log(data);
         })
         socket.on("index", (index) => {
             setIdx(index)
@@ -28,11 +28,11 @@ const Battleship = ({socket, user}) => {
     }, []);
 
     if (!user) {
-        return <Redirect to="/login" />
+        return <Redirect to={`/login/${id?id:""}`} />
     }
 
     if (id && !roomInfo) {
-        socket.emit("Join", "battleship", user);
+        socket.emit("Join", "battleship", id, user);
         return <></>;
     }
     if (!roomInfo) {
@@ -54,13 +54,13 @@ const Battleship = ({socket, user}) => {
                 <h1>{roomInfo.winner === idx?"you won.":"you lost."}</h1>
                 {
                     roomInfo.players[idx].rematch
-                    ? <p className="inputname">Waiting for response...</p>
+                    ? <p className="inputname">waiting for a repsonse...</p>
                     : roomInfo.players[idx===0?1:0].rematch
                         ? <div>
-                            <h3 className="tac">Oppenent Wants A Rematch?</h3>
-                            <div className="Buttons yesno">
-                                <button className="formbutton" onClick={() => socket.emit("b_rematch", roomInfo.code, idx)}>Yes?</button>
-                                <button className="formbutton" onClick={() => socket.emit("reject")}>No?</button>
+                            <h3 className="tac">oppenent wants a rematch?</h3>
+                            <div>
+                                <button className="formbutton" onClick={() => socket.emit("b_rematch", roomInfo.code, idx)}>yes</button>
+                                <button className="formbutton" onClick={() => socket.emit("reject")}>no</button>
                             </div>
                         </div>
                         : <div className="MatchmakingButtons">
@@ -73,16 +73,18 @@ const Battleship = ({socket, user}) => {
     }
 
     const Shoot = (coords) => {
-        console.log("SHooting");
         if (idx === roomInfo.turn) {
             socket.emit("b_shoot", roomInfo.code, coords);
         }
     }
-    console.log(roomInfo.players[idx===0?1:0].user);
+    
     return(
         <div className="Battleships">
             <div className="Board">
-                <h2>Your Board</h2>
+                <div className="Boardtitle">
+                    <h2>your board</h2>
+                    <h2>{roomInfo.players[idx].score}</h2>
+                </div>
                 <Grid map={roomInfo.players[idx].map} eshots={roomInfo.players[idx===0?1:0].shots} />
             </div>
             <h2 className="TurnText">
@@ -93,7 +95,10 @@ const Battleship = ({socket, user}) => {
                 }
             </h2>
             <div className="Board">
-                <h2>{roomInfo.players[idx===0?1:0].user.username}'s Board</h2>
+                <div className="Boardtitle">
+                    <h2>{roomInfo.players[idx===0?1:0].user.username}'s Board</h2>
+                    <h2>{roomInfo.players[idx===0?1:0].score}</h2>
+                </div>
                 <Grid map={roomInfo.players[idx===0?1:0].map} shots={roomInfo.players[idx].shots} shoot={Shoot} />
             </div>
         </div>
